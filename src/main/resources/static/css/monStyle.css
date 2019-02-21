@@ -1,0 +1,85 @@
+.bg-default-orange-ange
+{
+    background-color: #ff6600 !important;
+}
+
+.bg-default-noir-ange
+{
+    background-color: #212121 !important;
+}
+
+.fill-default-orange-ange
+{
+    fill: #ff6600;
+}
+
+
+.fill-default-noir-ange
+{
+    background-color: #212121;
+}
+
+.text-noir
+{
+    color: #212121 !important;
+}
+
+/***********************************************************BOUTON PRIMAIRE******************************************/
+.btn-primary-ange
+{
+    color: #fff;
+    border-color: #ff6600;
+    background-color: #ff6600;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+}
+.btn-primary-ange:hover
+{
+    color: #fff;
+    border-color: #212121;
+    background-color: #212121;
+}
+.btn-primary-ange:focus,
+.btn-primary-ange.focus
+{
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08), 0 0 0 0 rgb(255, 102, 0);
+}
+.btn-primary-ange.disabled,
+.btn-primary-ange:disabled
+{
+    color: #fff;
+    border-color: #ff6600;
+    background-color: #ff6600;
+}
+.btn-primary-ange:not(:disabled):not(.disabled):active,
+.btn-primary-ange:not(:disabled):not(.disabled).active,
+.show > .btn-primary-ange.dropdown-toggle
+{
+    color: #fff;
+    border-color: #ff6600;
+    background-color: #ff6600;
+}
+.btn-primary-ange:not(:disabled):not(.disabled):active:focus,
+.btn-primary-ange:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary-ange.dropdown-toggle:focus
+{
+    box-shadow: none, 0 0 0 0 rgb(255, 102, 0);
+}
+/*****************************************************FIN BOUTON PRIMAIRE**************************************/
+
+/*****************************************************ALERT ***************************************************/
+.alert-default-ange
+{
+    color: #212121;
+    border-color: #ff6600;
+    background-color: #ff6600;
+}
+.alert-default-ange hr
+{
+    border-top-color: #ff6600;
+}
+.alert-default-ange .alert-link
+{
+    color: #ff6600;
+}
+
+/*****************************************************FIN ALERT ***********************************************/

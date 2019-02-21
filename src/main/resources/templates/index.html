@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>myBookStore - Votre Librairie  en ligne</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- Javascript -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+    <script defer src="/js/animation.js"></script>
+    <script defer src="/js/function.js"></script>
+    <script defer src="/js/fetch.js"></script>
+
+</head>
+<body>
+<div class="nav-wrapper">
+    <div class="logo">
+        <h1>
+            MyBookStore
+        </h1>
+    </div>
+
+    <nav>
+        <a href="#" id="collections-link">
+            <div class="letter">C</div>
+            <div class="letter">o</div>
+            <div class="letter">l</div>
+            <div class="letter">l</div>
+            <div class="letter">e</div>
+            <div class="letter">c</div>
+            <div class="letter">t</div>
+            <div class="letter">i</div>
+            <div class="letter">o</div>
+            <div class="letter">n</div>
+            <div class="letter">s</div>
+        </a>
+
+        <a sec:authorize="isAnonymous()" th:href="@{/login}">
+            <div class="letter">C</div>
+            <div class="letter">o</div>
+            <div class="letter">m</div>
+            <div class="letter">p</div>
+            <div class="letter">t</div>
+            <div class="letter">e</div>
+        </a>
+    </nav>
+</div>
+
+<div class="column-wrapper">
+    <section class="text-section new-content">
+        <h1>Votre Librairie en ligne</h1>
+        <p>
+            Acheter des livres en lignes facilement
+        </p>
+
+        <div class="details-btn">
+            EN SAVOIR
+            <img src="/img/plus.png" alt="Plus Icon"/>
+        </div>
+    </section>
+
+    <section class="image-section">
+        <div class="gallery-counter">
+            <div id="gallery-headline">
+                GALERIE
+            </div>
+            <div id="gallery-loader">
+                <h2></h2>
+                <div class="loader">
+                    <div class="loader-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sidebar-section">
+        <div class="hamburger">
+            <div class="ham-line"></div>
+            <div class="ham-line" id="short"></div>
+            <div class="ham-line"></div>
+        </div>
+
+        <div class="social">
+            <a href="http://facebook.com">
+                <div class="letter">f</div>
+                <div class="letter">a</div>
+                <div class="letter">c</div>
+                <div class="letter">e</div>
+                <div class="letter">b</div>
+                <div class="letter">o</div>
+                <div class="letter">o</div>
+                <div class="letter">k</div>
+            </a>
+            <a href="http://twitter.com">
+                <div class="letter">t</div>
+                <div class="letter">w</div>
+                <div class="letter">i</div>
+                <div class="letter">t</div>
+                <div class="letter">t</div>
+                <div class="letter">e</div>
+                <div class="letter">r</div>
+            </a>
+        </div>
+    </section>
+</div>
+
+<div class="gallery-nav">
+    <div id="yellow-bg">
+        <img src="/img/arrow.png" alt="Arrow Icon"/>
+    </div>
+    <div id="white-bg">
+        <img src="/img/arrow.png" alt="Arrow Icon"/>
+    </div>
+</div>
+</body>
+</html>

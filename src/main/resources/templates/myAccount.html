@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Compte</title>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-grid.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-reboot.css"/>
+    <link rel="stylesheet" href="/css/myToast.css" />
+    <link rel="stylesheet" href="/css/logincss.css" />
+    <link rel="stylesheet" href="/css/tab.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+</head>
+<body>
+<div class='content'>
+    <div class='tabs-v'>
+        <input checked id='rad1' name='rad' type='radio'  />
+        <label data-text='' for='rad1'></label>
+        <input id='rad2' name='rad' type='radio' class="active"/>
+        <label data-text='' for='rad2'></label>
+        <input id='rad3' name='rad' type='radio' />
+        <label data-text='' for='rad3'></label>
+        <div class='tab-c'>
+            <div class="container-fluid">
+                <div class="row no-gutter">
+                    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+                    <div class="col-md-8 col-lg-6">
+                        <div class="login d-flex align-items-center py-5">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-9 col-lg-8 mx-auto">
+                                        <div class="alert alert-primary alert-dismissible fade show" role="alert" style="margin-bottom: 80px;" th:if="${emailSent}">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <strong>Compte crée ! </strong>Un email de confirmation a été envoyé à l'adresse renseigné.
+                                        </div>
+
+                                        <h3 class="login-heading mb-4">Créer un Compte</h3>
+                                        <form th:action="@{/newUser}" method="post">
+                                            <div class="form-label-group">
+                                                <input type="text" id="inputUsername" class="form-control" name="username" placeholder="Nom Utilisateur" required autofocus>
+                                                <label for="inputUsername">Nom Utilisateur </label>
+                                            </div>
+                                            <span aria-hidden="true" style="margin-bottom: 10px; display: block; color: red;" th:if="${usernameExists}">
+                                                Nom Utilisateur déjà utilisé !
+                                            </span>
+                                            <div class="form-label-group">
+                                                <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email" required>
+                                                <label for="inputEmail">Email</label>
+                                            </div>
+                                            <span aria-hidden="true" style="margin-bottom: 10px; display: block; color: red;" th:if="${emailExists}">
+                                                Email déjà utilisé !
+                                            </span>
+                                            <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Valider</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='tab-c'>
+            <div class="container-fluid">
+                <div class="row no-gutter">
+                    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+                    <div class="col-md-8 col-lg-6">
+                        <div class="login d-flex align-items-center py-5">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-9 col-lg-8 mx-auto">
+                                        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-bottom: 80px;" th:if="${param.error != null}">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <strong> Nom Utilisateur ou Mot de passe Incorrect </strong>
+                                        </div>
+                                        <h3 class="login-heading mb-4">Se Connecter</h3>
+                                        <form th:action="@{/login}" method="post">
+                                            <div class="form-label-group">
+                                                <input type="email" id="inputEmailConnexion" class="form-control" placeholder="Email" required autofocus>
+                                                <label for="inputEmailConnexion">Email </label>
+                                            </div>
+
+                                            <div class="form-label-group">
+                                                <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+                                                <label for="inputPassword">Mot de passe</label>
+                                            </div>
+
+                                            <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Connexion</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='tab-c'>
+            <div class="container-fluid">
+                <div class="row no-gutter">
+                    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+                    <div class="col-md-8 col-lg-6">
+                        <div class="login d-flex align-items-center py-5">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-9 col-lg-8 mx-auto">
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-bottom: 80px;" th:if="${emailNotExist}">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <strong> Email non enregistré ! </strong>
+                                        </div>
+                                        <h3 class="login-heading mb-4">Réinitailser votre mot de passe</h3>
+                                        <form th:action="@{/forgetPassword}" method="post">
+                                            <div class="form-label-group">
+                                                <input type="email" id="inputEmailReinitialiser" name="email" class="form-control" placeholder="Email" required autofocus>
+                                                <label for="inputEmailReinitialiser">Email </label>
+                                            </div>
+                                            <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Valider</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script defer src="/js/bootstrap.js"></script>
+<script defer src="/js/bootstrap.bundle.js"></script>
+<script defer src="/js/tab.js"></script>
+<script>
+    jQuery(document).ready(function(){
+        jQuery('.toast__close').click(function(e){
+            e.preventDefault();
+            var parent = $(this).parent('.toast');
+            parent.fadeOut("slow", function() { $(this).remove(); } );
+        });
+    });
+</script>
+</body>
+</html>
