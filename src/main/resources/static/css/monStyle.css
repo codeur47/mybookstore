@@ -24,6 +24,12 @@
     color: #212121 !important;
 }
 
+.image-section-ange {
+    flex: 1.5;
+    background: url('/img/img4.jpg');
+    background-size: cover;
+    position: relative; }
+
 /***********************************************************BOUTON PRIMAIRE******************************************/
 .btn-primary-ange
 {
